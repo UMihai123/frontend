@@ -1,9 +1,10 @@
 import { Outlet, Link } from "react-router-dom";
 
+
 const Layout = () => {
   return (
     <>
-      <nav className="navbar navbar-expand-sm bg-dark">'
+      <nav className="navbar navbar-expand-sm bg-secondary">'
         <div className="container-fluid">
           <ul className="navbar-nav">
             <li className="nav-item">
@@ -11,6 +12,9 @@ const Layout = () => {
             </li>
             <li className="nav-item float-right">
               <Link className="nav-link text-white" to="/login">Login</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link text-white" to="/contact">Contact</Link>
             </li>
           </ul>
         </div>

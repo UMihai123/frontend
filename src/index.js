@@ -7,6 +7,7 @@ import Home from "./Pages/Home"
 import Layout from "./Pages/Layout" 
 import NoPage from "./Pages/NoPage"
 import Login from "./Pages/Login"
+import Contact from "./Pages/Contact"
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="login" element={<Login />} />
           <Route path="*" element={<NoPage />} />
+          <Route path="contact" element={<Contact />} />
         </Route>
       </Routes>
     </BrowserRouter>
