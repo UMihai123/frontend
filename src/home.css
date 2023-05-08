@@ -1,0 +1,109 @@
+.title{
+    text-align: center;
+    padding-top: 20px;
+    border: 10px solid black;
+    background-color: blue;
+    color: white;
+}
+
+.our-products {
+    padding-top: 20px;
+}
+
+.small-container {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+row-2 {
+    justify-content: space-between;
+    margin: 100px auto 50px;
+}
+
+select {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+select:focus {
+    outline : none;
+}
+
+main {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: 50px 0;
+}
+
+section {
+	margin: 20px;
+	background-color: white;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	text-align: center;
+	padding: 20px;
+	flex: 1 0 300px;
+}
+
+section img {
+	width: 100%;
+	border-radius: 10px;
+	margin-bottom: 10px;
+}
+
+section h2 {
+	font-size: 24px;
+	margin: 10px 0;
+}
+
+section p {
+	font-size: 16px;
+	line-height: 1.5;
+	margin-bottom: 20px;
+}
+
+section a {
+	background-color: navy;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 20px;
+	text-decoration: none;
+}
+
+section a:hover {
+	background-color: #444;
+}
+
+
+.page-btn {
+    margin: 0 auto 80px;
+}
+
+.page-btn span {
+    display: inline-block;
+    border: 1px solid black;
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+.page-btn span:hover {
+    background-color: blue;
+    color: white;
+}
+
+.legal-info {
+    padding: 20px;
+    display: inline;
+}
+
+@media only screen and (max-width: 600px) {
+    .row-2 {
+        flex-direction: column;
+        text-align: center;
+    }
+}

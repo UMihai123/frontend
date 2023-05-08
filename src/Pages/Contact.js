@@ -31,7 +31,7 @@ return (
         <input type="text" id="lname" name="lastname" placeholder="Your last name.."></input><br></br>
         <label for="email">Enter your email</label><br></br>
         <input type="text" id="email" name="email" placeholder="Eg. example@email.com"></input><br></br>
-        <label for="country">Country</label>
+        <label for="country">Country</label><br></br>
         <select id="country" name="country"><br></br>
             <option value="australia">Australia</option>
             <option value="canada">Canada</option>
