@@ -2,12 +2,18 @@ import "../home.css"
 
 function ProductHome(props){
     return(
-        <section class="product">
-			<img src={props.product.image} alt="produs"></img>
+        <section className="product">
 			<h2>{props.product.title}</h2>
-			<p>{props.product.description}</p>
             <p>{props.product.price}</p>
-			<a href="#">Buy now</a>
+			<a href="#">Buy now</a>	
+			<div className="container">
+				<img src={props.product.image} alt="produs"></img>
+				<div className = "middle">
+					<div className="text">{props.product.description}
+					</div>
+				</div>
+			</div>
+			
 		</section>
     )
 }

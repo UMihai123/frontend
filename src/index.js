@@ -8,6 +8,7 @@ import Layout from "./Pages/Layout"
 import NoPage from "./Pages/NoPage"
 import Login from "./Pages/Login"
 import Contact from "./Pages/Contact"
+import Cart from "./Pages/Cart"
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
           <Route path="login" element={<Login />} />
           <Route path="*" element={<NoPage />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="cart" element={<Cart />} />
         </Route>
       </Routes>
     </BrowserRouter>

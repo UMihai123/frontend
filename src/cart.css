@@ -1,0 +1,36 @@
+.checkout-container {
+  position: relative;
+}
+
+.checkout-button {
+  padding: 10px;
+}
+
+.checkout-popup {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transform: translateY(10px);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.checkout-popup form {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout-popup form label {
+  margin-bottom: 10px;
+}
+
+.checkout-popup form input[type="text"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+

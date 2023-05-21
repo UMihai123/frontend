@@ -47,7 +47,7 @@ section {
 }
 
 section img {
-	width: 100%;
+	width: 80%;
 	border-radius: 10px;
 	margin-bottom: 10px;
 }
@@ -60,7 +60,8 @@ section h2 {
 section p {
 	font-size: 16px;
 	line-height: 1.5;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
+
 }
 
 section a {
@@ -100,6 +101,61 @@ section a:hover {
     padding: 20px;
     display: inline;
 }
+
+.product:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: aliceblue;   
+
+}
+
+.container{
+    position: relative;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    flex: 1 1 200px;
+    margin: 20px;
+}
+
+img {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+
+.middle {
+    width: 100px;
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+
+.container:hover .middle {
+    opacity: 1;
+}
+
+.container:hover img {
+    opacity: 0.3;
+}
+
+.text {
+    background-color: #04AA6D;
+    color: white;
+    font-size: 15px;
+    padding: 16px 20px;
+  }
 
 @media only screen and (max-width: 600px) {
     .row-2 {
