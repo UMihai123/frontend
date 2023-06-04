@@ -68,7 +68,7 @@ export default function Home() {
         <div className="newsletter">
             <h3>Abonează-te la newsletter-ul nostru</h3>
             <form>
-             <input type="email" placeholder="Introdu adresa ta de email" required></input><br></br>
+             <input type="email" placeholder="Introdu adresa de email" required></input><br></br>
              <button type="submit">Abonează-te</button>
             </form>
         </div><br></br>

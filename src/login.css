@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+
+}
+  
+
+.login-form {
+    width: 800px;
+    background-image: url('https://media.dcnews.ro/image/202110/w670/leo_messi_psg_statistici_fb_54835200.jpg');
+    background-size: 100%;
+    background-position: center;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    margin: 0 auto; 
+}
+
+.mb-3 {
+    color: white;
+}
+
+
+
+

@@ -4,17 +4,20 @@ import { Outlet, Link } from "react-router-dom";
 const Layout = () => {
   return (
     <>
-      <nav className="navbar navbar-expand-sm bg-secondary">'
+      <nav className="navbar navbar-expand-sm bg-secondary">
         <div className="container-fluid">
           <ul className="navbar-nav">
             <li className="nav-item">
               <Link className="nav-link text-white" to="/">Home</Link>
             </li>
-            <li className="nav-item float-right">
+            <li className="nav-item">
               <Link className="nav-link text-white" to="/login">Login</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link text-white" to="/contact">Contact</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link text-white" to="/cart">Cart</Link> {/* Adaugă această linie pentru pagina "Cart" */}
             </li>
           </ul>
         </div>
@@ -26,3 +29,5 @@ const Layout = () => {
 };
 
 export default Layout;
+
+

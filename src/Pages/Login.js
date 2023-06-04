@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import axios from "axios"
 import jwt_decode from "jwt-decode";
+import "../login.css";
 
 export default function Login() {
     const [email, setEmail] = useState("")
@@ -22,7 +23,9 @@ export default function Login() {
     };
 
     return (
-        <>  <div className="container w-25 d-flex align-items-center justifiy-content-center" style={{marginTop: "200px" }}> 
+        <>  
+        <div class= "login-form">
+            <div className="container w-25 d-flex align-items-center justifiy-content-center" style={{marginTop: "200px" }}> 
                 <form className="my-auto" onSubmit={handleSubmit}>
                     <div className="mb-3">
                         <label htmlFor="email" className="form-label">Email:</label>
@@ -33,10 +36,10 @@ export default function Login() {
                         <input type="password" value={password} className="form-control" name="password" onChange={({ target }) => setPassword(target.value)}></input>
                     </div>
                     <div className="d-flex justify-content-center">
-                        <input onClick={handleSubmit} type="submit" className="btn btn-success" style={{width: "100px"}} value="Login"></input>
                     </div>
                 </form>
             </div>
+        </div>
             <p className="text-center text-danger">{errorMessage}</p>
         </>
     );
