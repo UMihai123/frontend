@@ -3,6 +3,8 @@ import "../contact.css";
 export default function Contact () {
 
 return (
+
+    // detalii despre about-us
     <div id = "container">
     <div class = "abous-us">
     <div>
@@ -22,6 +24,7 @@ return (
     </div>
     </div>
 
+    {/* formular pentru a ne trimite un mesaj ce contine mai multe tabele */}
     <div class = "send-us">
     <center><h1>Send Us A Message</h1></center><br></br>
     <form>

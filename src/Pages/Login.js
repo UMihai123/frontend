@@ -10,7 +10,7 @@ export default function Login() {
 
     const handleSubmit = async e => {
         e.preventDefault()
-
+        // conexiunea cu back-end
         const user = {email, password}
         setErrorMessage("")
         await axios.post("https://localhost:7002/api/Authenticate/login", user)
@@ -24,6 +24,7 @@ export default function Login() {
 
     return (
         <>  
+        {/* formularul de login ce contine email si parola */}
         <div class= "login-form">
             <div className="container w-25 d-flex align-items-center justifiy-content-center" style={{marginTop: "200px" }}> 
                 <form className="my-auto" onSubmit={handleSubmit}>

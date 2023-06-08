@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import ProductHome from "../Componente/ProductHome";
 import axios from "axios";
 import "../home.css"
+import { useNavigate } from "react-router-dom";
 
 // var products=[
 // {"id":1,"price":20,"title":"T-Shirt", "description":"Paris Saint-German x Jordan Fourth Stadium Stadium Shirt 2022-23","image":"https://m.media-amazon.com/images/I/81lQzmnqRhL._AC_SL1500_.jpg"},
@@ -11,19 +13,36 @@ import "../home.css"
 // ]
 
 export default function Home() {
+
+
+    // functii pentru butoane de in fata si in spate 
+    const history = useNavigate();
+    // cand dau inapoi scade cu 1
+    function backHandler(){
+        history (`${parseInt(id)-1}`)
+    }
+
+    // in fata creste cu 1
+    function nextHandler(){
+        history (`${parseInt(id)+1}`)
+    }
+
     const [products, setProducts] = useState([])
     const [errorMessage, setErrorMessage] = useState("")
-    
-// conexiunea cu back-end
+    // ne afiseaza 3 produse pe pagina
+    const OnPage=3;
+    var {id}=useParams();
+    // paginile incep de la 1 ( id = 1)
+    if (id===undefined) id=1;
     useEffect(()=>{
-        axios.get("https://localhost:7002/api/Product/GetAllRange?offset=0&limit=20")
+        axios.get("https://localhost:7002/api/Product/GetAllRange?offset="+(id-1)*OnPage+"&limit="+OnPage)
         .then((response) => {
             console.log(response.data)
             setProducts(response.data)
         }).catch(() => {
             
         });
-    },[])
+    },[id])
        
     if (products.length!==0){
         return(
@@ -43,23 +62,24 @@ export default function Home() {
                 </div>
             </div>
 
+            {/* produsele noastre */}
             <div className="our-products">
                 <center><h2>Our Products</h2></center>
             </div>
 
+            {/* butonul pentru sortare */}
             <div className = "small-container">
                 <div className = "row row-2">
                     <h2>All Products</h2>
                     <select>
                         <option>Default Sorting</option>
                         <option>Sort by price</option>
-
                     </select>
                 </div>
             </div>
 
             <main>
-
+            {/* ne folosim de componente */}
             {products.map((product) => (<ProductHome key={product.id} product={product} />))}
 
             </main>
@@ -68,7 +88,12 @@ export default function Home() {
 
 
 
-       
+         {/* buton de jos */}
+         <div className = "page-btn">
+                <span onClick = {backHandler}>&#8592;</span>
+                <span onClick = {nextHandler}>&#8594;</span>
+            </div>
+
 
         { /* footer */ }
             <footer>

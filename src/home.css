@@ -157,6 +157,11 @@ img {
     padding: 16px 20px;
   }
 
+.product-image {
+    width: 200px; 
+    height: auto; 
+}
+
 @media only screen and (max-width: 600px) {
     .row-2 {
         flex-direction: column;

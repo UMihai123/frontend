@@ -2,38 +2,38 @@ import React, { useState } from 'react';
 import '../cart.css';
 
 export default function Cart() {
-  const [showCheckout, setShowCheckout] = useState(false);
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [cardNumber, setCardNumber] = useState('');
-  const [expiryDate, setExpiryDate] = useState('');
-  const [cvv, setCvv] = useState('');
+  const [showCheckout, setShowCheckout] = useState(false);   //stare pentru a gestiona vizibilitatea ferestrei pop-up de finalizare a achizitiei
+  const [formSubmitted, setFormSubmitted] = useState(false); //stare sa vedem daca formularul a fost trimis
+  const [cardNumber, setCardNumber] = useState(''); //stare pt a stoca datele cardului introdus 
+  const [expiryDate, setExpiryDate] = useState(''); //stare pt a stoca data de expirare a cardului
+  const [cvv, setCvv] = useState(''); //stare pt cvv
 
   const handleCheckout = () => {
-    setShowCheckout(true);
+    setShowCheckout(true); //seteaza starea pe true atunci cand se apasa butonul ,,Finalizare achizitie''
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
    
-    const cardNumberValue = event.target.cardNumber.value;
-    const expiryDateValue = event.target.expiryDate.value;
-    const cvvValue = event.target.cvv.value;
+    const cardNumberValue = event.target.cardNumber.value; //obtine valoarea introdusa pt numar
+    const expiryDateValue = event.target.expiryDate.value; // pt data de expirare
+    const cvvValue = event.target.cvv.value; //pt cvv
     console.log('Card details submitted:', cardNumberValue, expiryDateValue, cvvValue);
   
-    setCardNumber(cardNumberValue);
-    setExpiryDate(expiryDateValue);
-    setCvv(cvvValue);
-    setFormSubmitted(true);
+    setCardNumber(cardNumberValue); //actualizeaza starea cardNumber
+    setExpiryDate(expiryDateValue); //actualizeaza starea expirtDate
+    setCvv(cvvValue); //cvv
+    setFormSubmitted(true); //seteaza ca formularul a fost trimis
   };
 
   const handleClosePopup = () => {
-    setFormSubmitted(false);
+    setFormSubmitted(false); //seteaza starea formSubmitted pe false cand se inchide fereastra pop-up
   };
 
   return (
     <div>
-      <h1>Your Cart</h1>
-      <div className="cart">
+      <h1 class="title">Your Cart</h1>
+      {/* <div className="cart">
       <div className="product">
             <div className="product-info">
                 <h2>Product 1</h2>
@@ -59,8 +59,8 @@ export default function Cart() {
                         <button className="remove">Remove</button>
                     </div>
                 </div>
-                </div>
-                <div className="checkout-container">
+                </div> */}
+        <div className="checkout-container">
         <button className="checkout-button" onClick={handleCheckout}>
           Checkout
         </button>
