@@ -7,6 +7,7 @@ import Home from "./Pages/Home"
 import Layout from "./Pages/Layout" 
 import NoPage from "./Pages/NoPage"
 import Login from "./Pages/Login"
+import Register from "./Pages/Register"
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

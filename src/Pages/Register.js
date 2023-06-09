@@ -2,8 +2,9 @@ import {useNavigate} from "react-router-dom"
 import React, { useState, useEffect } from "react"
 import axios from "axios"
 
-export default function Login() {
+export default function Register() {
     const [email, setEmail] = useState("")
+    const [userName, setUserName] = useState("")
     const [password, setPassword] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
     const nav = useNavigate()
@@ -15,21 +16,28 @@ export default function Login() {
         }
     }, [nav]);
 
-    function register() {
-        nav("/register")
-    }
-
     const handleSubmit = async e => {
         e.preventDefault()
 
-        const user = {email, password}
+        const user = {email, userName, password}
         setErrorMessage("")
-        await axios.post("https://localhost:7002/api/Authenticate/login", user)
-                .then((response) => {
-                    localStorage.setItem("user", response.data.token)
-                    nav("/")
+        if (email === "" || email.indexOf("@") === -1){
+            setErrorMessage("The email you entered is invalid")
+            return;
+        }
+        if (userName === ""){
+            setErrorMessage("The username you entered is invaid")
+            return;
+        }
+        if (password.length < 8){
+            setErrorMessage("The password should be at least 8 charactes long")
+            return;
+        }
+        await axios.post("https://localhost:7002/api/Authenticate/register", user)
+                .then(() => {
+                    nav("/login")
                 }).catch(() => {
-                    setErrorMessage("The username or password is invalid!")
+                    setErrorMessage("There was an error creating your account.")
                 });
     };
 
@@ -42,6 +50,10 @@ export default function Login() {
                         <input type="email" value={email} className="form-control" name="email" onChange={({ target }) => setEmail(target.value)}></input>
                     </div>
                     <div className="mb-3">
+                        <label htmlFor="username" className="form-label">Username:</label>
+                        <input type="text" value={userName} className="form-control" name="username" onChange={({ target }) => setUserName(target.value)}></input>
+                    </div>
+                    <div className="mb-3">
                         <label htmlFor="password" className="form-label">Password:</label>
                         <input type="password" value={password} className="form-control" name="password" onChange={({ target }) => setPassword(target.value)}></input>
                     </div>
@@ -51,8 +63,6 @@ export default function Login() {
                 </form>
             </div>
             <p className="text-center text-danger">{errorMessage}</p>
-
-            <p className="text-center">Don't have an account? <button className="btn btn-link" onClick={register}>Register</button></p>
         </>
     );
 }
