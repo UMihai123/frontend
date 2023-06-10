@@ -19,7 +19,7 @@ export default function Home() {
         axios.get("https://localhost:7002/api/Product/GetAllRange?offset=0&limit=20")
         .then((response) => {
             console.log(response.data)
-            setProducts(response.data)
+            setProducts(response.data.products)
         }).catch(() => {
             
         });

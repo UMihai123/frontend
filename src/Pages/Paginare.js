@@ -19,32 +19,39 @@ export default function Home() {
     const history = useNavigate();
     // cand dau inapoi scade cu 1
     function backHandler(){
-        history (`${parseInt(id)-1}`)
+        if(parseInt(id)>1)
+            history (`${parseInt(id)-1}`)
     }
 
     // in fata creste cu 1
     function nextHandler(){
-        history (`${parseInt(id)+1}`)
+        console.log(pages)
+        if (parseInt(id)<pages)
+            history (`${parseInt(id)+1}`)
     }
 
     const [products, setProducts] = useState([])
     const [errorMessage, setErrorMessage] = useState("")
+    
     // ne afiseaza 3 produse pe pagina
     const OnPage=3;
     var {id}=useParams();
+    var pages=0;
     // paginile incep de la 1 ( id = 1)
     if (id===undefined) id=1;
     useEffect(()=>{
         axios.get("https://localhost:7002/api/Product/GetAllRange?offset="+(id-1)*OnPage+"&limit="+OnPage)
         .then((response) => {
-            console.log(response.data)
+            // console.log(response.data)
             setProducts(response.data)
+            
         }).catch(() => {
             
         });
     },[id])
        
     if (products.length!==0){
+        pages=products.total/OnPage;
         return(
             <div>
             <div className="title"><h1>The Official Shop Of PSG Club</h1></div>
@@ -80,7 +87,7 @@ export default function Home() {
 
             <main>
             {/* ne folosim de componente */}
-            {products.map((product) => (<ProductHome key={product.id} product={product} />))}
+            {products.products.map((product) => (<ProductHome key={product.id} product={product} />))}
 
             </main>
 
