@@ -51,12 +51,18 @@ const Layout = () => {
             </li>
             {
               userRole === "Admin" || userRole === "Colaborator" ?
+              <>
                 <li className="nav-item">
                   <Link className="nav-link text-white" to="/addProduct">Add product</Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link text-white" to="/addCategory">Add category</Link>
+                </li>
+                </>
                 :
                 <div></div>
             }
+             
           </ul>
           <div className="float:right text-white navbar-nav align-middle" style={{cursor: "pointer"}} onClick={handleLogin}>
             {

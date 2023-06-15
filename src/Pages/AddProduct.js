@@ -2,17 +2,27 @@ import { useState, useEffect } from "react";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import "../addproduct.css";
 
 function AddProduct() {
   //starea pentru poza
   const [photo, setPhoto] = useState([]);
   const [user, setUser] = useState()
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     const userFromLocalStorage = localStorage.getItem("user")
     if (userFromLocalStorage){
         setUser(userFromLocalStorage)
     }
+    axios.get("https://localhost:7002/api/Category")
+    .then(response => {
+      setCategories(response.data);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+
     }, []);
 
   const history = useNavigate();
@@ -54,8 +64,9 @@ function AddProduct() {
   }
   return (
     //formular pentru adaugarea unui produs
-    <div>
-      <div>
+    <div className="container4">
+     <div className="form-wrapper">
+        <h1 className="titluladd">Add Product</h1>
         <label htmlFor="Title">Title</label>
         <br/>
 
@@ -81,10 +92,16 @@ function AddProduct() {
         <input type="text" required id="quantity" ref={quantityRef} />
         <br/>
 
-        <label htmlFor="categId">Categ Id</label>
-        <br/>
-        <input type="text" required id="categId" ref={categIdRef} />
-        <br/>
+        <label htmlFor="categId">Category ID</label>
+        <br />
+        <select id="categId" required ref={categIdRef}>
+          {categories.map(category => (
+            <option key={category.id} value={category.id}>
+              {category.categoryName}
+            </option>
+          ))}
+        </select>
+        <br />
 
         <label htmlFor="Photo">Photo</label>
         <br/>
@@ -97,8 +114,9 @@ function AddProduct() {
         />
         <br/>
 
-      </div>
+     
       <button onClick={addProd}>Add Product</button>
+    </div>
     </div>
   );
 }
