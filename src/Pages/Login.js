@@ -34,7 +34,7 @@ export default function Login() {
                 });
     };
 
-    return {
+    return (
         <>  
         <div class= "login-form">
             <div className="container w-25 d-flex align-items-center justifiy-content-center" style={{marginTop: "200px" }}> 
@@ -55,6 +55,7 @@ export default function Login() {
             <p className="text-center text-danger">{errorMessage}</p>
 
             <p className="text-center">Don't have an account? <button className="btn btn-link" onClick={register}>Register</button></p>
+        </div>
         </>
     );
 }
