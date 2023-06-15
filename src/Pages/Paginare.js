@@ -29,9 +29,18 @@ export default function Home() {
         if (parseInt(id)<pages)
             history (`${parseInt(id)+1}`)
     }
+    const handleChange = event => {
+        setSelected(event.target.value);
+        if(selected === "sort")
+            setSorted(false)
+        else
+            setSorted(true)
+      };
 
     const [products, setProducts] = useState([])
     const [errorMessage, setErrorMessage] = useState("")
+    const [selected, setSelected] = useState("")
+    const [sorted, setSorted] = useState(false)
     
     // ne afiseaza 3 produse pe pagina
     const OnPage=3;
@@ -40,15 +49,15 @@ export default function Home() {
     // paginile incep de la 1 ( id = 1)
     if (id===undefined) id=1;
     useEffect(()=>{
-        axios.get("https://localhost:7002/api/Product/GetAllRange?offset="+(id-1)*OnPage+"&limit="+OnPage)
+        axios.get("https://localhost:7002/api/Product/GetAllRange?offset="+(id-1)*OnPage+"&limit="+OnPage+"&sorted="+sorted)
         .then((response) => {
-            // console.log(response.data)
+            console.log(response.data)
             setProducts(response.data)
             
         }).catch(() => {
             
         });
-    },[id])
+    },[id, sorted])
        
     if (products.length!==0){
         pages=products.total/OnPage;
@@ -78,9 +87,9 @@ export default function Home() {
             <div className = "small-container">
                 <div className = "row row-2">
                     <h2>All Products</h2>
-                    <select>
-                        <option>Default Sorting</option>
-                        <option>Sort by price</option>
+                    <select onChange={handleChange} value={selected}>
+                        <option value="">Default Sorting</option>
+                        <option value="sort">Sort by price</option>
                     </select>
                 </div>
             </div>

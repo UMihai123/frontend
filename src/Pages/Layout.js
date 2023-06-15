@@ -14,6 +14,7 @@ const Layout = () => {
   useEffect(() => {
     const userFromLocalStorage = localStorage.getItem("user")
     if(userFromLocalStorage){
+      console.log(userFromLocalStorage)
       setUser(jwt_decode(userFromLocalStorage))
       setIsLoggedIn(true)
       setUserRole(jwt_decode(userFromLocalStorage).role)
@@ -41,9 +42,6 @@ const Layout = () => {
             </li> */}
             <li className="nav-item">
               <Link className="nav-link text-white" to="/products">Produse</Link> 
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link text-white" to="/login">Login</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link text-white" to="/cart">Cart</Link> 

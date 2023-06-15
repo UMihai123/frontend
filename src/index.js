@@ -18,7 +18,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
+          <Route index element={<Paginare />} />
           <Route path='/products' element={<Paginare/>}>
             <Route path=':id' element={<Paginare/>}/>
           </Route>
