@@ -1,0 +1,71 @@
+
+body {
+    overflow-x: hidden;
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0 ;
+    box-sizing: border-box;
+}
+
+#container {
+    min-height: 100vh;
+    display: flex;
+}
+
+.abous-us{
+    width: 50vw;
+    background-image: url('https://images.psg.media/media/127020/header-privacy-policy-website.jpg?anchor=center&mode=crop&width=450&height=300&quality=60');
+    background-repeat: no-repeat;
+    background-size:cover;
+    color: white;
+    text-align: center;
+    line-height: 200%;
+}
+
+.send-us {
+    width: 50vw;    
+    background-color: #f2f2f2; 
+    line-height: 200%;
+    padding: 20px;
+    overflow: auto;
+    text-align: center;
+}
+
+input[type=submit] {
+background-color: #04AA6D;
+border: none;
+color: white;
+padding: 16px 32px;
+text-decoration: none;
+margin: 4px 2px;
+cursor: pointer;
+}
+
+@media only screen and (min-width: 600px)
+{
+    .abous-us {
+        width: 50vw;
+        background-position: center;
+    }
+    .send-us {
+        width: 50vw;
+    }
+
+
+}
+
+@media only screen and (max-width: 600px) {
+    #container {
+        flex-direction: column;
+    }
+    .abous-us {
+        width: 100vw;
+        
+    }
+    .send-us {
+        width: 100vw;
+    }
+}

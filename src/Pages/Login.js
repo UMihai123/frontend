@@ -1,3 +1,5 @@
+import jwt_decode from "jwt-decode";
+import "../login.css";
 import {useNavigate} from "react-router-dom"
 import React, { useState, useEffect } from "react"
 import axios from "axios"
@@ -21,7 +23,6 @@ export default function Login() {
 
     const handleSubmit = async e => {
         e.preventDefault()
-
         const user = {email, password}
         setErrorMessage("")
         await axios.post("https://localhost:7002/api/Authenticate/login", user)
@@ -33,9 +34,10 @@ export default function Login() {
                 });
     };
 
-    return (
-        <>
-            <div className="container d-flex align-items-center justifiy-content-center" style={{marginTop: "200px", width: "fit-content" }}> 
+    return {
+        <>  
+        <div class= "login-form">
+            <div className="container w-25 d-flex align-items-center justifiy-content-center" style={{marginTop: "200px" }}> 
                 <form className="my-auto" onSubmit={handleSubmit}>
                     <div className="mb-3">
                         <label htmlFor="email" className="form-label">Email:</label>

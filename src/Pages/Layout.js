@@ -2,6 +2,8 @@ import { Outlet, Link, useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react"
 import jwt_decode from "jwt-decode"
 
+
+
 const Layout = () => {
   const [user, setUser] = useState(null)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -31,11 +33,23 @@ const Layout = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-sm bg-dark">'
+      <nav className="navbar navbar-expand-sm bg-secondary">
         <div className="container-fluid">
           <ul className="navbar-nav">
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link className="nav-link text-white" to="/">Home</Link>
+            </li> */}
+            <li className="nav-item">
+              <Link className="nav-link text-white" to="/products">Produse</Link> 
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link text-white" to="/login">Login</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link text-white" to="/cart">Cart</Link> 
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link text-white" to="/contact">Contact</Link>
             </li>
             {
               userRole === "Admin" || userRole === "Colaborator" ?
@@ -72,3 +86,5 @@ const Layout = () => {
 };
 
 export default Layout;
+
+
