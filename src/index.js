@@ -10,6 +10,8 @@ import Login from "./Pages/Login"
 import Contact from "./Pages/Contact"
 import Cart from "./Pages/Cart"
 import Paginare from "./Pages/Paginare"
+import Register from "./Pages/Register"
+import AddProduct from './Pages/AddProduct';
 
 export default function App() {
   return (
@@ -21,6 +23,8 @@ export default function App() {
             <Route path=':id' element={<Paginare/>}/>
           </Route>
           <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+          <Route path="addProduct" element={<AddProduct />} />
           <Route path="*" element={<NoPage />} />
           <Route path="contact" element={<Contact />} />
           <Route path="cart" element={<Cart />} />
