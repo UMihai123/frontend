@@ -5,6 +5,7 @@ import jwt_decode from "jwt-decode"
 const Layout = () => {
   const [user, setUser] = useState(null)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [userRole, setUserRole] = useState(null)
   const nav = useNavigate()
   const location = useLocation()
 
@@ -13,6 +14,7 @@ const Layout = () => {
     if(userFromLocalStorage){
       setUser(jwt_decode(userFromLocalStorage))
       setIsLoggedIn(true)
+      setUserRole(jwt_decode(userFromLocalStorage).role)
     }
   }, [location]);
 
@@ -35,6 +37,14 @@ const Layout = () => {
             <li className="nav-item">
               <Link className="nav-link text-white" to="/">Home</Link>
             </li>
+            {
+              userRole === "Admin" || userRole === "Colaborator" ?
+                <li className="nav-item">
+                  <Link className="nav-link text-white" to="/addProduct">Add product</Link>
+                </li>
+                :
+                <div></div>
+            }
           </ul>
           <div className="float:right text-white navbar-nav align-middle" style={{cursor: "pointer"}} onClick={handleLogin}>
             {

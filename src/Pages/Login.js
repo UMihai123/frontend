@@ -35,7 +35,7 @@ export default function Login() {
 
     return (
         <>
-            <div className="container w-25 d-flex align-items-center justifiy-content-center" style={{marginTop: "200px" }}> 
+            <div className="container d-flex align-items-center justifiy-content-center" style={{marginTop: "200px", width: "fit-content" }}> 
                 <form className="my-auto" onSubmit={handleSubmit}>
                     <div className="mb-3">
                         <label htmlFor="email" className="form-label">Email:</label>

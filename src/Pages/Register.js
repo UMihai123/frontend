@@ -33,6 +33,19 @@ export default function Register() {
             setErrorMessage("The password should be at least 8 charactes long")
             return;
         }
+        const uppercaseCheck = /[A-Z]/.test(e.target.value);
+
+        // Password number check
+        const numberCheck = /[0-9]/.test(e.target.value);
+
+        // Password special character check
+        const specialCharacterCheck = /[!@#$%^&*(),.?":{}|<>]/.test(e.target.value);
+
+        if (!uppercaseCheck || !numberCheck || !specialCharacterCheck){
+            setErrorMessage("The password should have one:\n-uppercase letter\n-number\n-special character")
+            return
+        }
+
         await axios.post("https://localhost:7002/api/Authenticate/register", user)
                 .then(() => {
                     nav("/login")
