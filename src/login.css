@@ -19,6 +19,9 @@
     color: white;
 }
 
+.text-center {
+    color: white;
+}
 
 @media (max-width: 768px) {
     .login-form {

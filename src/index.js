@@ -12,6 +12,7 @@ import Cart from "./Pages/Cart"
 import Paginare from "./Pages/Paginare"
 import Register from "./Pages/Register"
 import AddProduct from './Pages/AddProduct';
+import AddCategory from './Pages/AddCategory';
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
           <Route path="*" element={<NoPage />} />
           <Route path="contact" element={<Contact />} />
           <Route path="cart" element={<Cart />} />
+          <Route path="addCategory" element={<AddCategory />} />
         </Route>
       </Routes>
     </BrowserRouter>
